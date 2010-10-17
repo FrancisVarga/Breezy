@@ -32,6 +32,11 @@ package breezy
 			this.server.listen();
 			this.log("Listening on port " + String(this.port) + "...\n");
 		}
+		
+		public function stop():void{
+			this.server.close();
+		}
+		
 		private function socketConnectHandler(event:*):void{
 			var socket:Socket = event.socket;
 			socket.addEventListener(ProgressEvent.SOCKET_DATA, socketDataHandler);
